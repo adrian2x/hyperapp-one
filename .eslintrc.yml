@@ -1,0 +1,53 @@
+parser: "babel-eslint"
+extends: [
+  "standard",
+  "plugin:react/recommended",
+  "plugin:jsx-a11y/recommended",
+]
+env:
+  browser: true
+parserOptions:
+  jsx: true
+plugins: ["react", "jsx-a11y"]
+rules:
+  # best practices
+  block-scoped-var: "error"
+  prefer-promise-reject-errors: "warn"
+  semi: ["error", "always"]
+  no-extra-semi: "error"
+  comma-dangle: ["error", "always-multiline"]
+  multiline-ternary: ["error", "always-multiline"]
+  no-multiple-empty-lines: ["error", { "max": 2, "maxEOF": 0 }]
+  space-before-function-paren: ["error", { "anonymous": "always", "named": "never", "asyncArrow": "always" }]
+  max-len: ["error", 100, 2, { "ignoreComments": true, "ignoreRegExpLiterals": true, "ignoreStrings": true, "ignoreTemplateLiterals": true }]
+  operator-linebreak: ["error", "after"]
+  no-void: "error"
+  # react
+  react/jsx-key: "warn"
+  jsx-a11y/label-has-for: "off"
+  react/jsx-closing-tag-location: "error"
+  react/jsx-indent-props: ["error", 2]
+  react/jsx-no-duplicate-props: ["error", { "ignoreCase": true }]
+  react/jsx-no-comment-textnodes: "error"
+  react/jsx-props-no-multi-spaces: "error"
+  react/no-did-update-set-state: "error"
+  react/no-string-refs: "error"
+  react/no-unused-prop-types: "error"
+  react/prop-types: ["error", { "ignore": [], "customValidators": [], "skipUndeclared": false }]
+  react/default-props-match-prop-types: ["warn", { "allowRequiredDefaults": false }]
+  react/require-default-props: ["error", { "forbidDefaultForRequired": false }]
+  react/require-render-return: "error"
+  react/no-array-index-key: "error"
+  react/no-unused-state: "error"
+  react/display-name: "off"
+settings:
+  import/resolver:
+    node:
+      extensions: [".js", ".jsx", ".json"]
+  react:
+    version: "16.0"
+  propWrapperFunctions: [
+    "forbidExtraProps", // https://www.npmjs.com/package/airbnb-prop-types
+    "exact", // https://www.npmjs.com/package/prop-types-exact
+    "Object.freeze", // https://tc39.github.io/ecma262/#sec-object.freeze
+  ]
